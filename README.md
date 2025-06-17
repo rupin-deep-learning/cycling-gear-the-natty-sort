@@ -1,6 +1,5 @@
 # cycling-gear-the-natty-sort
 
-````markdown
 # 🚴‍♂️ CyclePro Ascend
 
 **CyclePro Ascend** is a cycling app MVP that simulates and tracks rides, provides real-time gear and power feedback, and displays post-ride analytics with interactive maps. Built for cyclists who want intelligent performance insights — even in a minimal setup.
