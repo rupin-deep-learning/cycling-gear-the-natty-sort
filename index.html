@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CycleSim</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>CycleSim</h1>
+    <img src="bike.png" alt="Bike Logo" class="logo"/>
+
+    <div class="card">
+      <label>Mode:
+        <select id="mode">
+          <option value="simulate">Simulate</option>
+          <option value="real">Real</option>
+        </select>
+      </label>
+
+      <label for="gpxFile">Upload GPX File:
+        <input type="file" id="gpxFile" accept=".gpx"/>
+      </label>
+    </div>
+
+    <div class="inputs card">
+      <label>Rider Weight (kg): <input type="number" id="riderWeight" value="70"/></label>
+      <label>Bike Weight (kg): <input type="number" id="bikeWeight" value="10"/></label>
+      <label>CdA: <input type="number" id="cda" step="0.01" value="0.3"/></label>
+      <label>Crr: <input type="number" id="crr" step="0.001" value="0.005"/></label>
+      <label>Air Density (kg/m³): <input type="number" id="airDensity" step="0.01" value="1.225"/></label>
+      <label>Front Gears (comma-separated): <input type="text" id="frontGears" value="50,34"/></label>
+      <label>Rear Gears (comma-separated): <input type="text" id="rearGears" value="11,13,15,17,19,21,23,25"/></label>
+      <label>Target Cadence Range (e.g. 80-100): <input type="text" id="targetCadence" value="80-100"/></label>
+      <label>Target Power (W): <input type="number" id="targetPower" value="200"/></label>
+    </div>
+
+    <div class="buttons card">
+<button id="startBtn">Start</button>
+<button id="pauseBtn" disabled>Pause</button>
+<button id="resumeBtn" disabled>Resume</button>
+<button id="stopBtn" disabled>Stop</button>
+<button id="resetBtn" disabled>Reset</button>
+
+
+    </div>
+
+    <div id="map" class="map card"></div>
+
+    <div id="metrics" class="card">
+      <p>Speed: <span id="speed">0</span> km/h</p>
+      <p>Power: <span id="power">0</span> W</p>
+      <p>Gradient: <span id="gradient">0</span> %</p>
+      <p>Cadence: <span id="cadence">0</span> rpm</p>
+      <p>Current Gear: <span id="currentGear">-</span></p>
+      <p>Suggested Gear: <span id="suggestedGear">-</span></p>
+    </div>
+
+    <div id="summary" class="hidden card"></div>
+    <div id="summaryMap" class="map card"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/togeojson@0.16.0/togeojson.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
